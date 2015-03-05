@@ -1,0 +1,68 @@
+
+playerAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+spasesip
+  rotate: false
+  xy: 1, 1
+  size: 79, 58
+  orig: 79, 58
+  offset: 0, 0
+  index: -1
+spasesip
+  rotate: false
+  xy: 82, 1
+  size: 79, 58
+  orig: 79, 58
+  offset: 0, 0
+  index: -1
+spasesip
+  rotate: false
+  xy: 163, 1
+  size: 79, 58
+  orig: 79, 58
+  offset: 0, 0
+  index: -1
+steerDown
+  rotate: false
+  xy: 244, 9
+  size: 79, 50
+  orig: 79, 50
+  offset: 0, 0
+  index: -1
+steerDown
+  rotate: false
+  xy: 325, 9
+  size: 79, 50
+  orig: 79, 50
+  offset: 0, 0
+  index: -1
+steerDown
+  rotate: false
+  xy: 406, 9
+  size: 79, 50
+  orig: 79, 50
+  offset: 0, 0
+  index: -1
+steerUp
+  rotate: false
+  xy: 487, 9
+  size: 79, 50
+  orig: 79, 50
+  offset: 0, 0
+  index: -1
+steerUp
+  rotate: false
+  xy: 568, 9
+  size: 79, 50
+  orig: 79, 50
+  offset: 0, 0
+  index: -1
+steerUp
+  rotate: false
+  xy: 649, 9
+  size: 79, 50
+  orig: 79, 50
+  offset: 0, 0
+  index: -1

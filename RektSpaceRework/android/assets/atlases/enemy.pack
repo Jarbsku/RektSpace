@@ -1,0 +1,26 @@
+
+enemysip.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+spasesip
+  rotate: false
+  xy: 1, 1
+  size: 65, 56
+  orig: 65, 56
+  offset: 0, 0
+  index: -1
+spasesip
+  rotate: false
+  xy: 68, 1
+  size: 65, 56
+  orig: 65, 56
+  offset: 0, 0
+  index: -1
+spasesip
+  rotate: false
+  xy: 135, 1
+  size: 65, 56
+  orig: 65, 56
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,117 @@
+
+lightButtons.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+backDown
+  rotate: false
+  xy: 1, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+backUp
+  rotate: false
+  xy: 35, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+exitDown
+  rotate: false
+  xy: 69, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+exitUp
+  rotate: false
+  xy: 103, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+musicDown
+  rotate: false
+  xy: 137, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+musicUp
+  rotate: false
+  xy: 171, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+playDown
+  rotate: false
+  xy: 205, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+playUp
+  rotate: false
+  xy: 239, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+retryDown
+  rotate: false
+  xy: 273, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+retryUp
+  rotate: false
+  xy: 307, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+settingsDown
+  rotate: false
+  xy: 341, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+settingsUp
+  rotate: false
+  xy: 375, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+soundDown
+  rotate: false
+  xy: 409, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+soundUp
+  rotate: false
+  xy: 443, 1
+  size: 32, 32
+  split: 0, 0, 0, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
