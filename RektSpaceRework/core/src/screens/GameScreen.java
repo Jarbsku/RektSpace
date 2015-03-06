@@ -71,6 +71,7 @@ public class GameScreen implements Screen{
     private CharSequence cs;
     //for debug
     private ShapeRenderer sh = new ShapeRenderer();
+
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -95,7 +96,7 @@ public class GameScreen implements Screen{
         backgroundSprite.draw(batch);
 
         if(Globals.STAGE_KEY == Globals.GAME_STAGE){
-            //updates goes here
+            //updates on different game stages goes here
             cs = ""+Globals.highScore;
             System.out.println(font.getBounds(cs).width);
             font.draw(batch, ""+Globals.score, (Globals.VIEWPORT_WIDTH / 2 ) - (font.getBounds(cs).width / 2), Globals.VIEWPORT_HEIGHT-25);
@@ -126,7 +127,7 @@ public class GameScreen implements Screen{
 
         if(Globals.STAGE_KEY == Globals.DEATH_STAGE){
 
-            //update all remaining effects and objects
+            //update all remaining effects and objects after player dies
             for(Bullet b : Globals.enemyBullets){
                 b.update(batch);
             }
@@ -225,6 +226,7 @@ public class GameScreen implements Screen{
         }
     }
 
+    //init all the resources needed to build the view
     @Override
     public void show() {
         batch = new SpriteBatch();
@@ -264,6 +266,7 @@ public class GameScreen implements Screen{
         player = new Player(new Vector2(-80, 208));
     }
 
+    //effect that moves players spaceship to the screen at start of the game
     private void preGameAnimation(){
 
         if(player == null){
@@ -294,6 +297,7 @@ public class GameScreen implements Screen{
         }
     }
 
+    //slows down background scrolling
     private void postGameAnimation(){
         if(scrollSpeed > MIN_SCROLL_SPEED){
             scrollSpeed -= 0.008;
@@ -368,6 +372,7 @@ public class GameScreen implements Screen{
         }
     }
 
+    //spawns enemies according to player position and running timer !NEEDS REWORK!
     private void enemySpawner(){
         if(Globals.STAGE_KEY == Globals.GAME_STAGE){
             if(!spawnTimer.isRunning()){
@@ -394,6 +399,7 @@ public class GameScreen implements Screen{
         }
     }
 
+    //unimplemented methods
     @Override
     public void resize(int width, int height) { }
 

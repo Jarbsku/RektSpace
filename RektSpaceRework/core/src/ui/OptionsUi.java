@@ -4,7 +4,6 @@ package ui;
  * Created by Jarbsku on 11.2.2015.
  */
 
-import jdk.nashorn.internal.objects.Global;
 import resources.DataSaver;
 import resources.Globals;
 
@@ -156,7 +155,7 @@ public class OptionsUi {
                 return true;
             }
             public void touchUp(InputEvent event, float x, float y, int pointer, int button){
-                if(Globals.STAGE_KEY_BUFFER == Globals.MAIN_STAGE){
+                if(Globals.TEMP_STAGE_KEY == Globals.MAIN_STAGE){
                     Globals.STAGE_KEY = Globals.MAIN_STAGE;
                 }else{
                     Globals.STAGE_KEY = Globals.DEATH_STAGE;

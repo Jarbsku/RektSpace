@@ -7,6 +7,11 @@ import aurelienribon.tweenengine.TweenAccessor;
 /**
  * Created by Jarbsku on 11.2.2015.
  */
+
+/*
+* tween engine
+* more information http://lmgtfy.com/?q=universal+tween+engine
+*/
 public class TweenTool implements TweenAccessor<Sprite> {
 
     public static final int ALPHA = 0;

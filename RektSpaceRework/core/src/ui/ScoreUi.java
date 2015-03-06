@@ -134,7 +134,7 @@ public class ScoreUi {
                 return true;
             }
             public void touchUp(InputEvent event, float x, float y, int pointer, int button){
-                Globals.STAGE_KEY_BUFFER = Globals.STAGE_KEY;
+                Globals.TEMP_STAGE_KEY = Globals.STAGE_KEY;
                 Globals.STAGE_KEY = Globals.OPTION_STAGE;
             }
         });

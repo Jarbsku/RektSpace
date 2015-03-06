@@ -21,8 +21,9 @@ public class Globals {
     public static boolean SOUND_ON = true;
 
     public static int STAGE_KEY = 0;
-    public static int STAGE_KEY_BUFFER = 0;
+    public static int TEMP_STAGE_KEY = 0;
 
+    //game stages for stage machine
     public static final int MAIN_STAGE = 0;
     public static final int OPTION_STAGE = 1;
     public static final int PREGAME_STAGE = 2;
@@ -34,6 +35,7 @@ public class Globals {
     public static final int VIEWPORT_HEIGHT = 480;
 
     public static Texture playerBullet = new Texture(Gdx.files.internal("images/bullet.png"));
+    public static Texture enemyBullet = new Texture(Gdx.files.internal("images/enemyBullet.png"));
     public static TextureAtlas explosionAtlas = new TextureAtlas(Gdx.files.internal("atlases/newEx.pack"));
     public static TextureAtlas playerAtlas = new TextureAtlas(Gdx.files.internal("atlases/playerAtlas.pack"));
     public static TextureAtlas enemyAtlas = new TextureAtlas(Gdx.files.internal("atlases/enemy.pack"));

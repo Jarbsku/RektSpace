@@ -62,7 +62,7 @@ public class Enemy extends GameObject {
 
         if(!timer.isRunning()){
             Globals.enemyBullets.add(new Bullet(new Vector2(position.x, position.y + (this.sprite.getHeight()/2)),
-                    -bulletSpeed, new Texture(Gdx.files.internal("images/enemyBullet.png"))));
+                    -bulletSpeed, Globals.enemyBullet));
             timer.start();
         }else if(timer.isPassed(shootSpeed)){
             timer.pause();
