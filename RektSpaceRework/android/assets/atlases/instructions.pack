@@ -1,0 +1,29 @@
+
+instructions.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+inst
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  split: 1, 0, 1, 0
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+inst
+  rotate: false
+  xy: 67, 1
+  size: 64, 64
+  split: 0, 0, 0, 0
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+inst
+  rotate: false
+  xy: 133, 1
+  size: 64, 64
+  split: 0, 0, 0, 0
+  orig: 64, 64
+  offset: 0, 0
+  index: -1

@@ -34,11 +34,8 @@ public class MainMenuUi {
     private static final int LOGO_WIDTH = 480;
     private static final int LOGO_HEIGHT = 250;
 
-    private static final float PADDING = 100;
-
-    private static final float BIG_PADDING = 308;
-
-    private static final float X_MOVEMENT = 308;
+    private static final float PADDING_BOT = 100;
+    private static final float PADDING = 50;
 
     //resources for scene drawing
     private StretchViewport viewport;
@@ -48,13 +45,12 @@ public class MainMenuUi {
 
     //resources for buttons
     private TextureAtlas buttonAtlas;
-    private Button play, exit, settings;
-    private Skin playSkin, exitSkin, settingsSkin;
+    private Button play, exit, settings, leader;
+    private Skin playSkin, exitSkin, settingsSkin, leaderSkin;
 
     private Image logo;
     private Texture logoImage;
 
-    private MoveToAction moveOffScreen, moveOnScreen;
 
     public MainMenuUi(){
         init();
@@ -94,12 +90,6 @@ public class MainMenuUi {
         initMenuActors();
 
         stage.addActor(rootTable);
-
-        moveOffScreen = new MoveToAction();
-        moveOffScreen.setPosition(-2000f, 0f);
-        moveOffScreen.setDuration(1f);
-
-        moveOnScreen = new MoveToAction();
     }
 
 
@@ -114,10 +104,12 @@ public class MainMenuUi {
 
         playSkin = new Skin(Gdx.files.internal("jsons/playButton.json"), buttonAtlas);
         settingsSkin = new Skin(Gdx.files.internal("jsons/settingsButton.json"), buttonAtlas);
+        leaderSkin = new Skin(Gdx.files.internal("jsons/leaderButton.json"), buttonAtlas);
         exitSkin = new Skin(Gdx.files.internal("jsons/exitButton.json"), buttonAtlas);
 
         play = new Button(playSkin);
         settings = new Button(settingsSkin);
+        leader = new Button(leaderSkin);
         exit = new Button(exitSkin);
 
         //add listeners to buttons
@@ -128,10 +120,11 @@ public class MainMenuUi {
 
         mainMenuArea.add(play).width(BUTTON_WIDTH).height(BUTTON_HEIGHT);
         mainMenuArea.add(settings).padLeft(PADDING).width(BUTTON_WIDTH).height(BUTTON_HEIGHT);
+        mainMenuArea.add(leader).padLeft(PADDING).width(BUTTON_WIDTH).height(BUTTON_HEIGHT);
         mainMenuArea.add(exit).padLeft(PADDING).width(BUTTON_WIDTH).height(BUTTON_HEIGHT);
 
         //add areas to rootTable
-        rootTable.add(logoArea).padBottom(PADDING);
+        rootTable.add(logoArea).padBottom(PADDING_BOT);
         rootTable.row();
         rootTable.add(mainMenuArea);
 
@@ -155,6 +148,15 @@ public class MainMenuUi {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button){
                 Globals.TEMP_STAGE_KEY = Globals.STAGE_KEY;
                 Globals.STAGE_KEY = Globals.OPTION_STAGE;
+            }
+        });
+
+        leader.addListener(new InputListener(){
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
+                return true;
+            }
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button){
+                Globals.ar.getLeaderboardGPGS();
             }
         });
 

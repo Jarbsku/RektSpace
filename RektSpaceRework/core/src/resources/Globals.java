@@ -34,11 +34,14 @@ public class Globals {
     public static final int VIEWPORT_WIDTH = 600;
     public static final int VIEWPORT_HEIGHT = 480;
 
+    public static ActionResolver ar = null; //is set at androidLauncher
+
     public static Texture playerBullet = new Texture(Gdx.files.internal("images/bullet.png"));
     public static Texture enemyBullet = new Texture(Gdx.files.internal("images/enemyBullet.png"));
     public static TextureAtlas explosionAtlas = new TextureAtlas(Gdx.files.internal("atlases/newEx.pack"));
     public static TextureAtlas playerAtlas = new TextureAtlas(Gdx.files.internal("atlases/playerAtlas.pack"));
     public static TextureAtlas enemyAtlas = new TextureAtlas(Gdx.files.internal("atlases/enemy.pack"));
+    public static TextureAtlas instructionAtlas = new TextureAtlas(Gdx.files.internal("atlases/instructions.pack"));
 
     public static ArrayList<Bullet> enemyBullets = new ArrayList<Bullet>();
 

@@ -51,19 +51,11 @@ public class Player extends GameObject{
         steerDown.setPlayMode(PlayMode.LOOP_PINGPONG);
 
         this.sprite = new Sprite(animation.getKeyFrame(0));
-
     }
 
     private void movement(){
         accelY = Gdx.input.getAccelerometerY();
         alphaY = (int)(this.speed * -accelY);
-
-        if(Gdx.input.isKeyPressed(Keys.W)){
-            alphaY = 6;
-        }else if(Gdx.input.isKeyPressed(Keys.S)){
-            alphaY = -6;
-        }
-
 
         if(((position.y + sprite.getHeight()+alphaY) > Globals.VIEWPORT_HEIGHT) || ((position.y + alphaY < 0))){
             alphaY = 0;
@@ -86,7 +78,6 @@ public class Player extends GameObject{
     private void playerAnimation(float delta){
 
         animationTime += delta;
-        System.out.println(accelY);
         if(accelY < -2){
             sprite.setRegion(steerUp.getKeyFrame(animationTime));
         }else if(accelY > 2){
@@ -94,9 +85,6 @@ public class Player extends GameObject{
         }else{
             sprite.setRegion(animation.getKeyFrame(animationTime));
         }
-
-
-
     }
 
     //calculates the fire rate of player
@@ -106,7 +94,6 @@ public class Player extends GameObject{
 
             timer.start();
             bullets.add(new Bullet(new Vector2((position.x + sprite.getWidth()), (position.y + (sprite.getHeight() / 2))), 6, Globals.playerBullet));
-
         }else if(timer.isPassed(200)){
 
             timer.pause();
@@ -152,5 +139,15 @@ public class Player extends GameObject{
                 (position.x + 20), (position.y + sprite.getHeight())};
 
         bounds.setVertices(boundVertecies);
+    }
+
+    public boolean isPlayerReady(){
+        if(accelY < -2){
+            return true;
+        }else if(accelY > 2){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

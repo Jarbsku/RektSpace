@@ -4,6 +4,7 @@ package ui;
  * Created by Jarbsku on 11.2.2015.
  */
 
+import jdk.nashorn.internal.objects.Global;
 import resources.Globals;
 
 import com.badlogic.gdx.Gdx;
@@ -30,7 +31,8 @@ public class ScoreUi {
     private static final int SCOREBOARD_WIDTH = 600;
     private static final int SCOREBOARD_HEIGHT = 250;
 
-    private static final float PADDING = 100;
+    private static final float PADDING_BOT = 100;
+    private static final float PADDING = 50;
 
     //resources for scene drawing
     private StretchViewport viewport;
@@ -40,8 +42,8 @@ public class ScoreUi {
 
     //resources for buttons
     private TextureAtlas buttonAtlas;
-    private Button retry, exit, settings;
-    private Skin retrySkin, exitSkin, settingsSkin, scoreBoardSkin;
+    private Button retry, exit, settings, leader;
+    private Skin retrySkin, exitSkin, settingsSkin, scoreBoardSkin, leaderSkin;
 
     //resources for displaying score
     private Label scoreBoard;
@@ -87,17 +89,18 @@ public class ScoreUi {
 
         //initialize button actors and their resources
         buttonAtlas = new TextureAtlas(Gdx.files.internal("atlases/lightButtons.pack"));
-        scoreAtlas = new TextureAtlas(Gdx.files.internal("atlases/scoreBoard.pack"));
+        scoreAtlas = new TextureAtlas(Gdx.files.internal("atlases/score.pack"));
 
         retrySkin = new Skin(Gdx.files.internal("jsons/retryButton.json"), buttonAtlas);
         settingsSkin = new Skin(Gdx.files.internal("jsons/settingsButton.json"), buttonAtlas);
         exitSkin = new Skin(Gdx.files.internal("jsons/exitButton.json"), buttonAtlas);
+        leaderSkin = new Skin(Gdx.files.internal("jsons/leaderButton.json"), buttonAtlas);
         scoreBoardSkin = new Skin(Gdx.files.internal("jsons/scoreBoard.json"), scoreAtlas);
-
 
         retry = new Button(retrySkin);
         settings = new Button(settingsSkin);
         exit = new Button(exitSkin);
+        leader = new Button(leaderSkin);
         scoreBoard = new Label("", scoreBoardSkin);
 
         //add listeners to buttons
@@ -105,12 +108,13 @@ public class ScoreUi {
 
         uiArea.add(retry).width(BUTTON_WIDTH).height(BUTTON_HEIGHT);
         uiArea.add(settings).padLeft(PADDING).width(BUTTON_WIDTH).height(BUTTON_HEIGHT);
+        uiArea.add(leader).padLeft(PADDING).width(BUTTON_WIDTH).height(BUTTON_HEIGHT);
         uiArea.add(exit).padLeft(PADDING).width(BUTTON_WIDTH).height(BUTTON_HEIGHT);
 
         scoreArea.add(scoreBoard).width(SCOREBOARD_WIDTH).height(SCOREBOARD_HEIGHT);
 
         //add areas to rootTable
-        rootTable.add(scoreArea).padBottom(PADDING);
+        rootTable.add(scoreArea).padBottom(PADDING_BOT);
         rootTable.row();
         rootTable.add(uiArea);
 
@@ -136,6 +140,15 @@ public class ScoreUi {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button){
                 Globals.TEMP_STAGE_KEY = Globals.STAGE_KEY;
                 Globals.STAGE_KEY = Globals.OPTION_STAGE;
+            }
+        });
+
+        leader.addListener(new InputListener(){
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
+                return true;
+            }
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button){
+                Globals.ar.submitScoreGPGS(Globals.score);
             }
         });
 

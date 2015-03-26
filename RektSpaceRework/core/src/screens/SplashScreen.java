@@ -10,6 +10,8 @@ import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
 
+import com.Ebbens.RektSpace.RektSpace;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -29,6 +31,12 @@ public class SplashScreen implements Screen{
 
     private TweenManager manager;
 
+    private RektSpace game;
+
+    public SplashScreen(RektSpace game){
+
+        this.game = game;
+    }
 
     @Override
     public void render(float delta) {
@@ -67,7 +75,7 @@ public class SplashScreen implements Screen{
             @Override
             public void onEvent(int arg0, BaseTween<?> arg1) {
                 dispose();
-                ScreenStack.setScreen(new GameScreen());
+                ScreenStack.setScreen(new GameScreen(game));
             }
 
         }).start(manager);

@@ -49,7 +49,6 @@ public class Enemy extends GameObject {
 
         animationTime += delta;
         sprite.setRegion(animation.getKeyFrame(animationTime));
-
     }
 
     public void update(SpriteBatch batch, float delta){

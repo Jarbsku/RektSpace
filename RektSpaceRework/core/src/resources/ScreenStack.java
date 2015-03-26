@@ -1,5 +1,6 @@
 package resources;
 
+import com.Ebbens.RektSpace.RektSpace;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
@@ -10,12 +11,12 @@ import screens.SplashScreen;
  */
 public class ScreenStack {
 
-    private static Game game;
+    private static RektSpace game;
 
     /*Initializes game and starts the splash screen*/
-    public static void init(Game gaem){
+    public static void init(RektSpace gaem){
         game = gaem;
-        game.setScreen(new SplashScreen());
+        game.setScreen(new SplashScreen(game));
     }
 
     public static void setScreen(Screen screen){

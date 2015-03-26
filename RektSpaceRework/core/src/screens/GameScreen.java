@@ -13,10 +13,13 @@ import objects.Player;
 import resources.DataSaver;
 import resources.Globals;
 import resources.Timer;
+import ui.InstructionUi;
 import ui.MainMenuUi;
 import ui.OptionsUi;
 import ui.ScoreUi;
 
+import com.Ebbens.RektSpace.RektSpace;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
@@ -36,12 +39,14 @@ public class GameScreen implements Screen{
     private static final float MAX_SCROLL_SPEED = 0.8f;
     private static final float MIN_SCROLL_SPEED = 0.15f;
     private static final int PUSH_ENEMY_OUT_FROM_SCREEN = 40;
+    private static final float MAX_MUSIC_VOLUME = 0.5f;
 
     private SpriteBatch batch;
     private OrthographicCamera camera;
     private MainMenuUi mainMenuUi;
     private OptionsUi optionsUi;
     private ScoreUi scoreUi;
+    private InstructionUi instUi;
 
     //variables for scrolling background
     private float scrollTime = 0;
@@ -59,6 +64,7 @@ public class GameScreen implements Screen{
     private Explosion removedExplosion;
 
     private Music gameMusic;
+    private float musicVolume = 0.5f;
 
     private Timer spawnTimer;
 
@@ -72,6 +78,13 @@ public class GameScreen implements Screen{
     //for debug
     private ShapeRenderer sh = new ShapeRenderer();
 
+    private RektSpace game;
+
+    public GameScreen(RektSpace game){
+        this.game = game;
+        Globals.ar = this.game.getActionResolver();
+    }
+
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -82,7 +95,7 @@ public class GameScreen implements Screen{
             scrollTime = 0.0f;
         }
         if(Globals.MUSIC_ON){
-            gameMusic.setVolume(1);
+            gameMusic.setVolume(musicVolume);
         }else{
             gameMusic.setVolume(0);
         }
@@ -199,6 +212,8 @@ public class GameScreen implements Screen{
 
             case Globals.PREGAME_STAGE:
                 preGameAnimation();
+                setGamingVolume();
+                instUi.render(delta, batch);
                 break;
 
             case Globals.GAME_STAGE:
@@ -222,6 +237,7 @@ public class GameScreen implements Screen{
 
             case Globals.POSTGAME_STAGE:
                 scoreUi.render();
+                setMenuVolume();
                 break;
         }
     }
@@ -244,8 +260,9 @@ public class GameScreen implements Screen{
         mainMenuUi = new MainMenuUi();
         optionsUi = new OptionsUi(dataSaver);
         scoreUi = new ScoreUi();
+        instUi = new InstructionUi(Globals.VIEWPORT_WIDTH, Globals.VIEWPORT_HEIGHT);
 
-        gameMusic = Gdx.audio.newMusic(Gdx.files.internal("audio/gameMusic.mp3"));
+        gameMusic = Gdx.audio.newMusic(Gdx.files.internal("audio/Reformat.mp3"));
         gameMusic.setLooping(true);
         gameMusic.play();
         if(!Globals.MUSIC_ON){
@@ -259,7 +276,6 @@ public class GameScreen implements Screen{
         background = new Texture(Gdx.files.internal("images/bg.png"));
         background.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
         backgroundSprite = new Sprite(background, 0 ,0 , 1000, 500);
-
     }
 
     private void initGameObjects(){
@@ -286,7 +302,7 @@ public class GameScreen implements Screen{
             scrollSpeed += 0.005;
         }else if(scrollSpeed > MAX_SCROLL_SPEED) {
             scrollSpeed = MAX_SCROLL_SPEED;
-        }else if(scrollSpeed == MAX_SCROLL_SPEED){
+        }else if(scrollSpeed == MAX_SCROLL_SPEED && player.isPlayerReady()){
             Globals.STAGE_KEY = Globals.GAME_STAGE;
         }else{
             //do nothing
@@ -380,6 +396,7 @@ public class GameScreen implements Screen{
                 enemies.add(spawnedEnemy);
                 spawnTimer.start();
             }
+
             else if(spawnTimer.isPassed(800) && !secondSpawn){
                 if(Globals.VIEWPORT_HEIGHT - (spawnedEnemy.getPosition().y + spawnedEnemy.getSprite().getHeight()) > spawnedEnemy.getPosition().y){
                     float tempY = (Globals.VIEWPORT_HEIGHT - (spawnedEnemy.getPosition().y + spawnedEnemy.getSprite().getHeight())) / 2;
@@ -392,9 +409,28 @@ public class GameScreen implements Screen{
                 }
                 secondSpawn = true;
             }
+
             else if(spawnTimer.isPassed(1200)){
                 secondSpawn = false;
                 spawnTimer.pause();
+            }
+        }
+    }
+
+    private void setGamingVolume(){
+        if(Globals.MUSIC_ON){
+            if(gameMusic.getVolume() > 0){
+                musicVolume -= 0.01f;
+                gameMusic.setVolume(musicVolume);
+            }
+        }
+    }
+
+    private void setMenuVolume(){
+        if(Globals.MUSIC_ON){
+            if(gameMusic.getVolume() < MAX_MUSIC_VOLUME){
+                musicVolume += 0.01f;
+                gameMusic.setVolume(musicVolume);
             }
         }
     }

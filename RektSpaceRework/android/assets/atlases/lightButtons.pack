@@ -5,7 +5,7 @@ filter: Nearest,Nearest
 repeat: none
 backDown
   rotate: false
-  xy: 1, 1
+  xy: 1, 205
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -13,7 +13,7 @@ backDown
   index: -1
 backUp
   rotate: false
-  xy: 35, 1
+  xy: 1, 171
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -21,7 +21,7 @@ backUp
   index: -1
 exitDown
   rotate: false
-  xy: 69, 1
+  xy: 35, 205
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -29,15 +29,31 @@ exitDown
   index: -1
 exitUp
   rotate: false
-  xy: 103, 1
+  xy: 1, 137
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
+leaderDown
+  rotate: false
+  xy: 35, 171
+  size: 32, 32
+  split: 0, 0, 0, 0
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+leaderUp
+  rotate: false
+  xy: 69, 205
+  size: 32, 32
+  split: 0, 0, 0, 0
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
 musicDown
   rotate: false
-  xy: 137, 1
+  xy: 1, 103
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -45,7 +61,7 @@ musicDown
   index: -1
 musicUp
   rotate: false
-  xy: 171, 1
+  xy: 35, 137
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -53,7 +69,7 @@ musicUp
   index: -1
 playDown
   rotate: false
-  xy: 205, 1
+  xy: 69, 171
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -61,7 +77,7 @@ playDown
   index: -1
 playUp
   rotate: false
-  xy: 239, 1
+  xy: 1, 69
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -69,7 +85,7 @@ playUp
   index: -1
 retryDown
   rotate: false
-  xy: 273, 1
+  xy: 35, 103
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -77,7 +93,7 @@ retryDown
   index: -1
 retryUp
   rotate: false
-  xy: 307, 1
+  xy: 69, 137
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -85,7 +101,7 @@ retryUp
   index: -1
 settingsDown
   rotate: false
-  xy: 341, 1
+  xy: 1, 35
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -93,7 +109,7 @@ settingsDown
   index: -1
 settingsUp
   rotate: false
-  xy: 375, 1
+  xy: 35, 69
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -101,7 +117,7 @@ settingsUp
   index: -1
 soundDown
   rotate: false
-  xy: 409, 1
+  xy: 69, 103
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
@@ -109,7 +125,7 @@ soundDown
   index: -1
 soundUp
   rotate: false
-  xy: 443, 1
+  xy: 1, 1
   size: 32, 32
   split: 0, 0, 0, 32
   orig: 32, 32
